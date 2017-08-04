@@ -1,5 +1,8 @@
-import { Component, Input } from '@angular/core';
-import { Hero } from './hero';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { HeroService } from './hero.service';
 
 @Component({
     selector: 'hero-detail',
@@ -20,4 +23,10 @@ import { Hero } from './hero';
 
 export class HeroDetailComponent {
     @Input() hero: Hero;
+
+    constructor(
+      private heroService: HeroService,
+      private route: ActivatedRoute,
+      private location: Location
+    ) {}
 }
